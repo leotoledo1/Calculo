@@ -1,6 +1,5 @@
 from sympy import Symbol, sympify, integrate, diff
 
-# Variável simbólica padrão
 x = Symbol('x')
 
 def calcular_integral_indefinida():
@@ -9,7 +8,7 @@ def calcular_integral_indefinida():
     funcao = sympify(funcao_texto)
     integral_indef = integrate(funcao, x)
 
-    print("\n=== RESULTADO DA INTEGRAL INDEFINIDA ===")
+    print("\nResultado da integral indefinida")
     print(f"∫ {funcao_texto} dx = {integral_indef} + C\n")
 
 
@@ -24,7 +23,7 @@ def calcular_integral_definida():
 
     resultado = integrate(funcao, (x, limite_inferior, limite_superior))
 
-    print("\n=== RESULTADO DA INTEGRAL DEFINIDA ===")
+    print("\n Resultado da integral definida")
     print(f"∫[{limite_inferior}, {limite_superior}] {funcao_texto} dx = {resultado}\n")
 
 
@@ -38,9 +37,7 @@ def calcular_derivada():
     print(f"f'(x) = {derivada}\n")
 
 
-# ============================
-#         MENU PRINCIPAL
-# ============================
+
 while True:
     print("=== CALCULADORA DE CÁLCULO ===")
     print("1 - Derivada")
