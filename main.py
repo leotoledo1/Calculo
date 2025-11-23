@@ -1,4 +1,6 @@
 from sympy import Symbol, sympify, integrate, diff
+from sympy import simplify
+
 
 x = Symbol('x')
 
@@ -33,7 +35,8 @@ def calcular_derivada():
     funcao = sympify(funcao_texto)
     derivada = diff(funcao, x)
 
-    print("\n=== RESULTADO DA DERIVADA ===")
+
+    print("\n RESULTADO DA DERIVADA ")
     print(f"f'(x) = {derivada}\n")
 
 
