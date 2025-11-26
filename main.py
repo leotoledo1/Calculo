@@ -1,4 +1,5 @@
-from sympy import Symbol, sympify, integrate, diff
+from sympy import Symbol, sympify, integrate, diff, pi, E
+
 
 
 x = Symbol('x')
