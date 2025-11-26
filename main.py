@@ -1,5 +1,6 @@
 from sympy import Symbol, sympify, integrate, diff
 
+
 x = Symbol('x')
 
 def calcular_integral_indefinida():
