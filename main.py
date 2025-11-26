@@ -1,6 +1,4 @@
 from sympy import Symbol, sympify, integrate, diff
-from sympy import simplify
-
 
 x = Symbol('x')
 
