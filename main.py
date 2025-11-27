@@ -16,8 +16,8 @@ def calcular_integral_indefinida():
 
 def calcular_integral_definida():
     funcao_texto = input("Digite a função f(x): ")
-    limite_inferior_texto = input("Digite o limite inferior: ")
-    limite_superior_texto = input("Digite o limite superior: ")
+    limite_inferior_texto = input("Digite o intervalo inferior: ")
+    limite_superior_texto = input("Digite o intervalo superior: ")
 
     funcao = sympify(funcao_texto)
     a = sympify(limite_inferior_texto)
