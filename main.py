@@ -1,6 +1,6 @@
-from sympy import Symbol, sympify, integrate, diff, pi, E
-
-
+from sympy import Symbol, sympify, integrate, diff
+import numpy as np
+import matplotlib.pyplot as plt
 
 x = Symbol('x')
 
@@ -20,13 +20,39 @@ def calcular_integral_definida():
     limite_superior_texto = input("Digite o limite superior: ")
 
     funcao = sympify(funcao_texto)
-    limite_inferior = sympify(limite_inferior_texto)
-    limite_superior = sympify(limite_superior_texto)
+    a = sympify(limite_inferior_texto)
+    b = sympify(limite_superior_texto)
 
-    resultado = integrate(funcao, (x, limite_inferior, limite_superior))
+    resultado = integrate(funcao, (x, a, b))
 
-    print("\n Resultado da integral definida")
-    print(f"∫[{limite_inferior}, {limite_superior}] {funcao_texto} dx = {resultado}\n")
+    print("\nResultado da integral definida")
+    print(f"∫[{a}, {b}] {funcao_texto} dx = {resultado}\n")
+
+    try:
+        f = lambda val: float(funcao.subs(x, val))
+
+        a_f = float(a)
+        b_f = float(b)
+
+        xs = np.linspace(a_f - (b_f - a_f) * 0.3, b_f + (b_f - a_f) * 0.3, 500)
+        ys = [f(val) for val in xs]
+
+        plt.plot(xs, ys, label=f"f(x) = {funcao_texto}", linewidth=2)
+
+        plt.title(f"Gráfico de f(x) = {funcao_texto}\nIntegral = {float(resultado):.5f}")
+        plt.xlabel("x")
+        plt.ylabel("f(x)")
+        plt.grid(True)
+        plt.legend()
+
+    
+        plt.axvline(a_f, linestyle="--", color="black")
+        plt.axvline(b_f, linestyle="--", color="black")
+
+        plt.show()
+
+    except Exception as e:
+        print(f"Erro ao gerar o gráfico: {e}")
 
 
 def calcular_derivada():
@@ -35,14 +61,12 @@ def calcular_derivada():
     funcao = sympify(funcao_texto)
     derivada = diff(funcao, x)
 
-
-    print("\n RESULTADO DA DERIVADA ")
+    print("\nRESULTADO DA DERIVADA")
     print(f"f'(x) = {derivada}\n")
 
 
-
 while True:
-    print("=== CALCULADORA DE CÁLCULO ===")
+    print("CALCULADORA")
     print("1 - Derivada")
     print("2 - Integral Indefinida")
     print("3 - Integral Definida")
